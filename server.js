@@ -1,5 +1,6 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser"); //middleware to parse incoming request bodies before handles via req.body
+const path = require("path") //helps match slashes to the OS  either \ or /
 
 const app = express();
 
@@ -7,6 +8,9 @@ const PORT = process.env.PORT ||3001;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+// have express serve stuff out of this folder (client/build)
+app.use(express.static("client/build"));
 
 
 // simple test to ensure server is working
@@ -29,6 +33,11 @@ app.post("/api/test", (req, res) =>{
     //expected: true on screen
  
  })
+
+//  this is a catch all if no other routes are mateched
+ app.use(function(req,res){
+     res.sendFile(path.join(__dirname, "client/build/index.html"));
+ });
 
 // simple test to ensure our Port is up and running
 app.listen(PORT, function(){

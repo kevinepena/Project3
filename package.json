@@ -4,7 +4,11 @@
   "description": "Bootcamp Project 3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "install": "cd client && yarn run install",
+    "build": "cd client && yarn run build",
+    "heroku-postbuild": "yarn run build"
   },
   "repository": {
     "type": "git",
