@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); //web framework for node - routing
 const bodyParser = require("body-parser"); //middleware to parse incoming request bodies before handles via req.body
 const path = require("path") //helps match slashes to the OS  either \ or /
 
@@ -35,9 +35,9 @@ app.post("/api/test", (req, res) =>{
  })
 
 //  this is a catch all if no other routes are mateched
- app.use(function(req,res){
-     res.sendFile(path.join(__dirname, "client/build/index.html"));
- });
+app.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "client/build/index.html"))
+  })
 
 // simple test to ensure our Port is up and running
 app.listen(PORT, function(){
