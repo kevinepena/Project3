@@ -2,9 +2,13 @@ const express = require("express"); //web framework for node - routing
 const bodyParser = require("body-parser"); //middleware to parse incoming request bodies before handles via req.body
 const path = require("path") //helps match slashes to the OS  either \ or /
 
+// const mongoose = require("mongoose");
 const app = express();
 
 const PORT = process.env.PORT ||3001;
+
+//place to hold our messages, then call the api 
+const messagePost =[];
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -26,10 +30,10 @@ app.get("/api/test", (req, res) =>{
 })
 
 //check to see if we can send data 
-app.post("/api/test", (req, res) =>{
+app.post("/api/messages", (req, res) =>{
+    messagePost.push(req.body)
     console.log(req.body); 
-    req.body.received = true;
-    res.json(req.body); //because of this, be sure to require body-parser
+    res.json(messagePost); //because of this, be sure to require body-parser
     //expected: true on screen
  
  })
