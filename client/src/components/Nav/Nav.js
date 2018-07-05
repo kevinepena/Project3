@@ -4,7 +4,7 @@ import "./Nav.css";
 
 
 const Nav = () => (
-    <nav bsStyle="tabs" className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">
         Project 3: <em>Name Coming Soon</em>
       </Link>
@@ -38,28 +38,4 @@ const Nav = () => (
     </nav>
   );
 
-
   export default Nav;
-
-// class NavJustified extends React.Component {
-//   handleSelect(selectedKey) {
-//     alert(`selected ${selectedKey}`);
-//   }
-
-// const Nav = () => (
-//   <nav bsStyle="tabs" justified activeKey="1" onSelect={k => this.handleSelect(k)>
-//       <navItem href="/home">
-//         Home
-//       </navItem>
-//       <navItem href="/forum">
-//         Forum
-//       </navItem>
-//       <navItem href="/photos">
-//        Photos
-//       </navItem>
-//     </nav>
-
-// )
-
-// export default NavJustified;
-  // }

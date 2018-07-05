@@ -1,0 +1,23 @@
+.header{
+    padding: 50px;
+   
+    margin-bottom: 20px;
+}
+
+h1{
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgb(13, 100, 195);
+    display: inline-block;
+    margin-bottom: 10px;
+
+    padding-bottom: 10px;
+    border-bottom: 10px solid rgb(235, 222, 176);
+    border-width: 50%;
+
+}
+
+
+.header3{
+    color: rgb(202, 135, 81);
+}
