@@ -41,7 +41,6 @@ const App = () => (
         <div className="App">
         <Nav />
         <Header/>
-   
           <Switch>
             <Route exact path="/" component={Home} />
             {/* <Route exact path="/forum" component={Forum} />

@@ -1,7 +1,7 @@
 // what components are we importing?
 
 import React from "react";
-import "./header.css";
+import "./Header.css";
 
 const Header = () => (
 
