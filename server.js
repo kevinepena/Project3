@@ -2,16 +2,18 @@ const express = require("express"); //web framework for node - routing
 const bodyParser = require("body-parser"); //middleware to parse incoming request bodies before handles via req.body
 const path = require("path") //helps match slashes to the OS  either \ or /
 
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const Message = require("./models/messages");
+
 const app = express();
 
-const PORT = process.env.PORT ||3001;
-
-//place to hold our messages, then call the api 
-const messagePost =[];
+const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+//mongoose
+mongoose.connect("mongodb://localhost:27017/project3");
 
 // have express serve stuff out of this folder (client/build)
 app.use(express.static("client/build"));
@@ -31,9 +33,11 @@ app.get("/api/test", (req, res) =>{
 
 //check to see if we can send data 
 app.post("/api/messages", (req, res) =>{
-    messagePost.push(req.body)
     console.log(req.body); 
-    res.json(messagePost); //because of this, be sure to require body-parser
+    Message.create(req.body).then(dbMessage =>{
+        res.json(dbMessage);
+    })
+    res.json(true); //because of this, be sure to require body-parser
     //expected: true on screen
  
  })

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 // import logo from './logo.svg';
 import "./App.css";
+import Nav from "./components/Nav";
 
 class App extends Component {
   state = {
@@ -28,44 +30,103 @@ class App extends Component {
 
   messagePost = event => {
     event.preventDefault();
-    const {title, body} = this.state;
-    axios.post("/api/messages",{title, body}).then(res => {
-      console.log(res)
-      this.setState({title:"", body: ""});
-    })
+    const { title, body } = this.state;
+    axios.post("/api/messages", { title, body }).then(res => {
+      console.log(res);
+      this.setState({ title: "", body: "" });
+    });
+  };
+
+  handleSelect(eventKey) {
+    eventKey.preventDefault();
+    alert(`selected ${eventKey}`);
   }
+
 
   render() {
     return (
-      <div className="App">
-      <nav className="nav">
-      <h1 className="App-header"> Nav Header: Name of project to come soon!</h1>
-      </nav>
-        <hr/>
-        <br />
-        <br /> 
-        <form>
-          <input
-            name="title"
-            onChange={this.handleInputChange}
-            value={this.state.title}
+      <Router>
+        <div className="App">
+          <Nav />
+          <hr />
+          <br />
+          <br />
+          <form>
+            <h3> This is the News/Updates section</h3>
+            <input
+              name="title"
+              onChange={this.handleInputChange}
+              value={this.state.title}
+            />
+
+            <br />
+            <br />
+
+            <textarea
+              name="body"
+              onChange={this.handleInputChange}
+              value={this.state.body}
+            />
+
+            <br />
+            <br />
+
+            <button onClick={this.messagePost}>Submit</button>
+          </form>
+
+          <hr />
+
+          <h3> This section will be for our photos</h3>
+          <img
+            alt="sunshin"
+            src="https://spaceplace.nasa.gov/templates/featured/sun/sunburn300.png"
           />
 
-          <br />
-          <br />
+          <hr />
+          <h3> This is the Messaging/Forum section</h3>
+          <form>
+            <input
+              name="title"
+              onChange={this.handleInputChange}
+              value={this.state.title}
+            />
 
-          <textarea
-            name="body"
-            onChange={this.handleInputChange}
-            value={this.state.body}
-          />
+            <br />
+            <br />
+
+            <textarea
+              name="body"
+              onChange={this.handleInputChange}
+              value={this.state.body}
+            />
+
+            <br />
+            <br />
+
+            <button onClick={this.messagePost}>Submit</button>
+          </form>
 
           <br />
-          <br />
+          <hr />
+          <h3> This is the Donation section</h3>
 
-          <button onClick={this.messagePost}>Submit</button>
-        </form>
-      </div>
+          <br />
+          <form>
+            <input
+              id="donateTest"
+              name="title"
+              onChange={this.handleInputChange}
+              value={this.state.title}
+              placeholder="Donate some money - help a friend!"
+            />
+
+            <br />
+            <br />
+          </form>
+
+          <br />
+        </div>
+      </Router>
     );
   }
 }
