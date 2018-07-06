@@ -8,12 +8,13 @@ const Message = require("./models/messages");
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+const MONGODB_URI = require("./models/keys");
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 //mongoose
-mongoose.connect("mongodb://localhost:27017/project3");
+mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/project3");
 
 // have express serve stuff out of this folder (client/build)
 app.use(express.static("client/build"));
