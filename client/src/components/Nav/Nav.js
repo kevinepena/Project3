@@ -5,8 +5,9 @@ import "./Nav.css";
 
 const Nav = () => (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <img src={require("./coaNicaragua.png")} id="navimg" width="30" height="30" alt=""/>
       <Link className="navbar-brand" to="/">
-        Project 3: <em>Name Coming Soon</em>
+        Nicaragua
       </Link>
       <button
         className="navbar-toggler"
@@ -18,8 +19,10 @@ const Nav = () => (
       >
         <span className="navbar-toggler-icon" />
       </button>
+ 
+
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav ml-auto">
          
           <li className="nav-item">
             <Link className="nav-link" to="/forum">Forum</Link>
