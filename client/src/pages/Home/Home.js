@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import API from "../../utils/API";
 
 class Home extends Component {
   state = {
@@ -13,14 +13,21 @@ class Home extends Component {
     this.setState({ [name]: value });
   };
 
+  
+
   messagePost = event => {
     event.preventDefault();
     const { title, body } = this.state;
-    axios.post("/api/messages", { title, body }).then(res => {
+    console.log({ title, body })
+    API.postArticle({ title, body })
+    .then(res => {
       console.log(res);
       this.setState({ title: "", body: "" });
-  
-    });
+
+    })
+    .catch(err => console.log(err));
+
+
   };
 
   render() {
