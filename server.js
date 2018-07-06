@@ -1,55 +1,35 @@
-const express = require("express"); //web framework for node - routing
-const bodyParser = require("body-parser"); //middleware to parse incoming request bodies before handles via req.body
-const path = require("path") //helps match slashes to the OS  either \ or /
-
+const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const Message = require("./models/messages");
-
+const routes = require("./routes");
 const app = express();
-
 const PORT = process.env.PORT || 3001;
-const MONGODB_URI = require("./models/keys");
 
-app.use(bodyParser.urlencoded({extended:true}));
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+app.use(routes);
 
-//mongoose
-mongoose.connect(MONGODB_URI || "mongodb://localhost:27017/project3");
-
-// have express serve stuff out of this folder (client/build)
-app.use(express.static("client/build"));
 
 
-// simple test to ensure server is working
-app.get("/", (req, res)=> {
-    res.send ("Hi there! Server working")
-})
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/project3",
+  {
+    useMongoClient: true
+  }
+);
 
-// simple test to validate that the backend and front end are working
-app.get("/api/messages", (req, res) =>{
-   console.log("this should be hit")
-   res.json(true); //because of this, be sure to require body-parser
 
-})
 
-//check to see if we can send data 
-app.post("/api/messages", (req, res) =>{
-    console.log(req.body); 
-    Message.create(req.body).then(dbMessage =>{
-        res.json(dbMessage);
-    })
-    // res.json(true); 
-    //because of this, be sure to require body-parser
-    //expected: true on screen
- 
- })
-
-//  this is a catch all if no other routes are mateched
-app.use(function(req, res) {
-    res.sendFile(path.join(__dirname, "client/build/index.html"))
-  })
-
-// simple test to ensure our Port is up and running
-app.listen(PORT, function(){
-    console.log(`API Server now listening on Port ${PORT}`);
-})
+// Start the API server
+app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
