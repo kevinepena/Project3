@@ -3,3 +3,6 @@
     height: 30px;
     margin-right: 15px;
 }
+.navbar{
+        border-bottom: 10px solid rgb(13, 100, 195);
+}

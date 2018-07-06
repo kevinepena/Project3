@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 const App = () => (
 
@@ -34,9 +35,6 @@ const App = () => (
         //   });
         // };
 
-
-        // render() {
-        //   return (
       <Router>
         <div className="App">
         <Nav />
@@ -48,6 +46,7 @@ const App = () => (
             <Route exact path="/donations"component ={Donations} />
             <Route exact path="/contact"component ={Contact} /> */}
           </Switch>
+          <Footer/>
           
         </div>
       </Router>

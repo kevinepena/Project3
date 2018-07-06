@@ -23,8 +23,10 @@ class Home extends Component {
     .then(res => {
       console.log(res);
       this.setState({ title: "", body: "" });
+
     })
     .catch(err => console.log(err));
+
 
   };
 
