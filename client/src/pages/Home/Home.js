@@ -19,6 +19,7 @@ class Home extends Component {
     axios.post("/api/messages", { title, body }).then(res => {
       console.log(res);
       this.setState({ title: "", body: "" });
+  
     });
   };
 
