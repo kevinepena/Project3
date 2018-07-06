@@ -25,8 +25,8 @@ app.get("/", (req, res)=> {
 })
 
 // simple test to validate that the backend and front end are working
-app.get("/api/test", (req, res) =>{
-//    console.log(req.body);commenting this out for testing purpsoses of post call below
+app.get("/api/messages", (req, res) =>{
+   console.log("this should be hit")
    res.json(true); //because of this, be sure to require body-parser
 
 })
@@ -37,7 +37,8 @@ app.post("/api/messages", (req, res) =>{
     Message.create(req.body).then(dbMessage =>{
         res.json(dbMessage);
     })
-    res.json(true); //because of this, be sure to require body-parser
+    // res.json(true); 
+    //because of this, be sure to require body-parser
     //expected: true on screen
  
  })
