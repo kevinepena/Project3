@@ -1,6 +1,13 @@
+/* Font Options */
+
+/* Pairing1: 
+font-family: 'Raleway', sans-serif;
+font-family: 'PT Sans Caption', sans-serif; */
+
 .header{
     padding: 50px;
     margin-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
 }
 
 h1{
@@ -11,7 +18,7 @@ h1{
     margin-bottom: 10px;
 
     padding-bottom: 10px;
-    border-bottom: 10px solid rgb(235, 222, 176);
+    border-bottom: 5px solid rgb(235, 222, 176);
     border-width: 50%;
 
 }

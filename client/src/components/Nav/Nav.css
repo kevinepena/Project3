@@ -2,11 +2,13 @@
     width: 30px;
     height: 30px;
     margin-right: 15px;
+
     /* animation: nav-logo-spin infinite 20s linear; */
 }
 .navbar{
-        border-bottom: 10px solid rgb(13, 100, 195);
-        animation: 1s ease-out 0s 1 slideInFromTop;
+    font-family: 'Raleway', sans-serif; 
+    border-bottom: 5px solid rgb(13, 100, 195);
+    animation: 1s ease-out 0s 1 slideInFromTop;
 }
 
 @keyframes slideInFromTop {
