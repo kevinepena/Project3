@@ -45,6 +45,7 @@ const App = () => (
             <Route exact path="/photos"component ={Photos} />
             <Route exact path="/donations"component ={Donations} />
             <Route exact path="/contact"component ={Contact} /> */}
+      
           </Switch>
           <Footer/>
           
