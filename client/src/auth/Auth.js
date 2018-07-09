@@ -6,7 +6,6 @@ import history from "../history";
 const origin = window.location.origin;
 export default class Auth {
     requestedScopes = 'openid profile read:blog write:blog'
-    
     auth0 = new auth0.WebAuth({
     domain: 'matsi.auth0.com',
     clientID: 'T-nA041F0yt5r9u-svHTQSb3rgfc2kMv',

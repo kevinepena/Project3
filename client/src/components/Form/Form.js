@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Router, Route, Redirect } from "react-router-dom";
-import API from "../../utils/API";// 
+import React from "react";
+import { Redirect } from "react-router-dom";
+
 
 
 const Form = props => (

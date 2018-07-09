@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-import Form from "../../components/Form";
+// import Form from "../../components/Form";
 import CreatePost from "./CreatePost";
 
 class Home extends Component {
@@ -22,8 +22,9 @@ class Home extends Component {
 
   refreshBlogs() {
     console.log("this should go!");
-    API.get("/api/blog").then(res => {
-      console.log(res);
+    API.getArticle().then(res => {
+      console.log(res.data);
+      
       this.setState({ blogs: res.data });
     });
   }
@@ -86,8 +87,8 @@ class Home extends Component {
             </div>
           ))}
 
-          
-          <Form/>
+          <CreatePost/>
+          {/* <Form/> */}
         </div>
       </div>
     );
