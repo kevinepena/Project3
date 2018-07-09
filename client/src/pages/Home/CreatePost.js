@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import API from "../../utils/API";
-
+import Form from "../../components/Form";
 
 class CreatePost extends Component {
   state = {
