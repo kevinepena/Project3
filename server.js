@@ -15,8 +15,6 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-
-
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
@@ -24,8 +22,6 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost:27017/project3",
   
 );
-
-
 
 // Start the API server
 app.listen(PORT, function() {

@@ -42,14 +42,14 @@ export default class Auth {
   }
  
   getProfile(cb) {
-     let accessToken = this.getAccessToken();
-     this.auth0.client.userInfo(accessToken, (err, profile) => {
-       if (profile) {
-         this.userProfile = profile;
-       }
-       cb(err, profile);
-     });
-   }
+    let accessToken = this.getAccessToken();
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        this.userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
   handleAuthentication(){
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {

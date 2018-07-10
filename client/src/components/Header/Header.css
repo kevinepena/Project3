@@ -23,7 +23,17 @@ h1{
 
 }
 
+h2{
+    color: orange;
+   font-family: 'PT Sans Caption', sans-serif; 
 
+}
+p{
+    font-family: 'PT Sans Caption', sans-serif; 
+    color: grey;
+    font-size: 25px;
+  
+}
 .header3{
     color: rgb(202, 135, 81);
 }

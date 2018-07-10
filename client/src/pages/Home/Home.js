@@ -1,23 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
-// import Form from "../../components/Form";
-import CreatePost from "./CreatePost";
+
 
 class Home extends Component {
   state = {
-    blogs: [
-      {
-        _id: 1,
-        title: "This is a test",
-        body: "Or is it????"
-      },
-      {
-        _id: 2,
-        title: "This is a test",
-        body: "Or is it????"
-      }
-    ]
+    blogs: []
   };
 
   refreshBlogs() {
@@ -81,14 +69,15 @@ class Home extends Component {
           {/* Map each of our posts */
           this.state.blogs.map(post => (
             <div key={post._id}>
-              <h1>{post.title}</h1>
-              <h3>Created at: {post.createdAt}</h3>
-              <p>{post.body}</p>
+              <h2>{post.title}</h2>
+              <h5>Created at: {post.createdAt}</h5>
+              <p><em>{post.body}</em></p>
             </div>
           ))}
-
-          <CreatePost/>
-          {/* <Form/> */}
+          <div>
+        
+          </div>
+          
         </div>
       </div>
     );
