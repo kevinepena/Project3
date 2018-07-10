@@ -12,7 +12,7 @@ export default {
         return axios.post("/api/articles", articleData);
     },
     // gets all saved articles
-    get: function () {
+    getArticle: function () {
         return axios.get("/api/articles");
     },
     // deletes saved article 
