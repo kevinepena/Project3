@@ -4,6 +4,8 @@ import "./Nav.css";
 
 class Nav extends Component {
   render() {
+    const loggedIn = this.props.auth.isAuthenticated();
+    const canWrite = this.props.auth.userHasScopes(["write:blog"]);
     return (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <img src={require("./coaNicaragua.png")} id="navimg" width="30" height="30" alt=""/>
@@ -34,14 +36,23 @@ class Nav extends Component {
         <Link className="nav-link" to="/photos">Photos</Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/donations">Donations</Link>
+        <Link className="nav-link" to="/donations"><strong>Donate</strong></Link>
       </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/contact">Contact</Link>
-      </li>
-      <li className="nav-item">
-        <Link className="nav-link" to="/login">Get Started</Link>
-      </li>
+      {!loggedIn ? (<li className="nav-item nav-link" 
+           onClick={this.props.auth.login}>Log In</li>
+        ) : (
+          <li className="nav-item nav-link"  onClick={this.props.auth.logout}>Log Off</li>
+        )}
+
+        {/* <Link to="/">Home&nbsp;</Link>  */}
+
+        {loggedIn && canWrite ? (
+          <Link to="/createpost">Create a Post&nbsp;</Link>
+        ) : (
+          ""
+        )}
+        {loggedIn ? <li className="nav-item"> <Link className="nav-link" to="/profile">Profile&nbsp;</Link> </li> : ""}
+
     </ul>
   </div>
 </nav>

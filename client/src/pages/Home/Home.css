@@ -1,0 +1,66 @@
+.article {
+    width: 30%;
+    margin: 30px 10px;
+    padding: 15px;
+    height: 250px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    background-color: whitesmoke
+}
+
+.cardimg{
+    width: 50%;
+    height: 150px;
+    float: left;
+
+}
+
+/* h2 {
+    float: right;
+    width: 70vw;
+} */
+
+.link {
+    width: 50%;
+    float: right;
+    
+}
+
+.link a {
+    color: rgb(13, 100, 195);
+    font-family: 'Raleway', sans-serif; 
+}
+
+.social {
+width: 100%;
+display: block
+}
+.top{
+    display: block;
+    height: 80%;
+}
+.socialbtn {
+    height: 50px;
+    width: 50px;
+    font-size: 10px;
+    color: rgba(225, 225, 225, .5);
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgba(225, 225, 225, 1);
+    transform: rotate(0deg);
+    transition: all .2s ease-in;
+    border: 0 none;
+    margin: 0 20px;
+}
+
+.socialbtn:hover {
+    cursor: pointer;
+    transform: scale(1.1) rotate(0deg);
+    -webkit-box-shadow: 10px 2px 8px -8px rgba(179, 164, 139, .6);
+  }
+  
+  .socialbtn:focus {
+    cursor: pointer;
+    outline: 0 none;
+  }

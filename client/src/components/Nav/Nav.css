@@ -9,6 +9,9 @@
     font-family: 'Raleway', sans-serif; 
     border-bottom: 5px solid rgb(13, 100, 195);
     animation: 1s ease-out 0s 1 slideInFromTop;
+    width: 100%;
+    z-index: 999;
+    position: fixed;
 }
 
 @keyframes slideInFromTop {
